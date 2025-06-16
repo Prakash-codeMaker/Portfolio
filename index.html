@@ -249,6 +249,43 @@
       .projects-grid { grid-template-columns: 1fr; gap: 1.2rem; }
       .project-card { padding: 1.2rem 1rem 1rem 1.2rem; }
     }
+    /* Modern Skills Section */
+    .skills-modern {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .skill-group-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+    .skill-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-badge {
+      background: rgba(99,102,241,0.13);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+      border: 1px solid rgba(99,102,241,0.13);
+      position: relative;
+    }
+    .skill-badge:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: scale(1.08);
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
@@ -295,7 +332,7 @@
   <section id="about">
     <h2 class="section-title">About Me</h2>
     <div class="about-container">
-      <img src="your-photo.jpg" alt="Prakash Chand Jain" class="about-avatar">
+      <img src="photo.png.jpg" alt="Prakash Chand Jain" class="about-avatar">
       <div class="about-info">
         <h3>Prakash Chand Jain</h3>
         <p>I'm Prakash Chand Jain — a passionate developer, fast-paced builder, and relentless problem solver from Pune, India. I believe that technology isn't just about writing code; it's about building solutions that truly matter.</p>
@@ -403,36 +440,74 @@
 
   <section id="skills">
     <h2 class="section-title">Skills & Technologies</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <span class="skill-icon">⚛️</span>
-        <h3>React.js</h3>
-        <p>Frontend Framework</p>
+    <div class="skills-modern">
+      <div class="skill-group">
+        <div class="skill-group-title">💻 Languages</div>
+        <div class="skill-badges">
+          <span class="skill-badge" title="ES6+">JavaScript</span>
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">C / C++</span>
+          <span class="skill-badge">Java</span>
+        </div>
       </div>
-      <div class="skill-card">
-        <span class="skill-icon">🟢</span>
-        <h3>Node.js</h3>
-        <p>Backend Runtime</p>
+      <div class="skill-group">
+        <div class="skill-group-title">🌐 Web Development</div>
+        <div class="skill-badges">
+          <span class="skill-badge">React.js</span>
+          <span class="skill-badge">Next.js</span>
+          <span class="skill-badge">Node.js</span>
+          <span class="skill-badge">Express.js</span>
+          <span class="skill-badge">HTML5</span>
+          <span class="skill-badge">CSS3</span>
+          <span class="skill-badge">Tailwind CSS</span>
+          <span class="skill-badge">REST APIs</span>
+        </div>
       </div>
-      <div class="skill-card">
-        <span class="skill-icon">🐍</span>
-        <h3>Python</h3>
-        <p>Programming Language</p>
+      <div class="skill-group">
+        <div class="skill-group-title">📊 Data & ML</div>
+        <div class="skill-badges">
+          <span class="skill-badge">NumPy</span>
+          <span class="skill-badge">pandas</span>
+          <span class="skill-badge">scikit-learn</span>
+          <span class="skill-badge">Matplotlib</span>
+          <span class="skill-badge">Seaborn</span>
+          <span class="skill-badge">Kaggle Notebooks</span>
+          <span class="skill-badge">EDA</span>
+          <span class="skill-badge">Classification Modeling</span>
+        </div>
       </div>
-      <div class="skill-card">
-        <span class="skill-icon">☕</span>
-        <h3>Java</h3>
-        <p>Object-Oriented Programming</p>
+      <div class="skill-group">
+        <div class="skill-group-title">🛠️ Tools & Platforms</div>
+        <div class="skill-badges">
+          <span class="skill-badge">Git & GitHub</span>
+          <span class="skill-badge">Netlify</span>
+          <span class="skill-badge">Vercel</span>
+          <span class="skill-badge">Figma</span>
+          <span class="skill-badge">Postman</span>
+          <span class="skill-badge">Formspree</span>
+          <span class="skill-badge">Netlify Forms</span>
+        </div>
       </div>
-      <div class="skill-card">
-        <span class="skill-icon">🔥</span>
-        <h3>Next.js</h3>
-        <p>Full-Stack Framework</p>
+      <div class="skill-group">
+        <div class="skill-group-title">🔒 Security & Pen Testing</div>
+        <div class="skill-badges">
+          <span class="skill-badge">Burp Suite</span>
+          <span class="skill-badge">Metasploit</span>
+          <span class="skill-badge">Custom Scripts</span>
+          <span class="skill-badge">SDLC Security</span>
+        </div>
       </div>
-      <div class="skill-card">
-        <span class="skill-icon">🎨</span>
-        <h3>CSS3</h3>
-        <p>Styling & Animation</p>
+      <div class="skill-group">
+        <div class="skill-group-title">🏆 Competitive Coding</div>
+        <div class="skill-badges">
+          <span class="skill-badge" title="LeetCode: 340+ problems solved">LeetCode</span>
+          <span class="skill-badge">Arrays</span>
+          <span class="skill-badge">Graphs</span>
+          <span class="skill-badge">DP</span>
+          <span class="skill-badge">Strings</span>
+          <span class="skill-badge">Recursion</span>
+          <span class="skill-badge">Rating ~1483</span>
+        </div>
       </div>
     </div>
   </section>
