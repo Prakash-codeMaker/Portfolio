@@ -167,6 +167,88 @@
       .competitions-list { grid-template-columns: 1fr; gap: 1.2rem; }
       .competition-card { padding: 1.2rem 1rem 1rem 1.2rem; }
     }
+    /* Modern Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,0.10);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(99,102,241,0.10);
+      padding: 2rem 1.5rem 1.5rem 2rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(12px);
+      min-height: 260px;
+      border-left: 6px solid var(--primary);
+    }
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.025);
+      box-shadow: 0 16px 40px rgba(99,102,241,0.18);
+      border-left: 6px solid var(--accent);
+      background: rgba(255,255,255,0.16);
+    }
+    .project-image {
+      font-size: 2.3rem;
+      margin-bottom: 0.7rem;
+      color: var(--primary);
+      align-self: flex-start;
+    }
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+    }
+    .project-desc {
+      color: var(--text2);
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+      line-height: 1.5;
+    }
+    .project-tech {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.7rem;
+      flex-wrap: wrap;
+    }
+    .tech-badge {
+      background: rgba(99,102,241,0.15);
+      color: var(--primary);
+      padding: 0.2rem 0.7rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .project-btn {
+      margin-top: auto;
+      align-self: flex-start;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.98rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(99,102,241,0.10);
+      cursor: pointer;
+      margin-right: 0.5rem;
+    }
+    .project-btn:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      .projects-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .project-card { padding: 1.2rem 1rem 1rem 1.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -357,40 +439,56 @@
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-image">💸</div>
-        <div class="project-content">
-          <h3 class="project-title">Financial Literacy Platform</h3>
-          <p>Built for the Built in India Hackathon (Top 50/25,000)<br>Next.js + Tailwind CSS + i18n<br>Focused on multilingual, accessible finance education</p>
+        <div class="project-title">Financial Literacy Platform</div>
+        <div class="project-desc">Built for the Built in India Hackathon (Top 50/25,000)<br>Focused on multilingual, accessible finance education</div>
+        <div class="project-tech">
+          <span class="tech-badge">Next.js</span>
+          <span class="tech-badge">Tailwind CSS</span>
+          <span class="tech-badge">i18n</span>
         </div>
       </div>
       <div class="project-card">
         <div class="project-image">📢</div>
-        <div class="project-content">
-          <h3 class="project-title">Notice Board App</h3>
-          <p>Real-time notice board built with Vanilla JS</p>
-          <a href="https://github.com/Prakash-codeMaker/Notice-Board" class="btn btn-primary" target="_blank">GitHub</a>
+        <div class="project-title">Notice Board App</div>
+        <div class="project-desc">Real-time notice board built with Vanilla JS</div>
+        <div class="project-tech">
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">HTML</span>
+          <span class="tech-badge">CSS</span>
         </div>
+        <a href="https://github.com/Prakash-codeMaker/Notice-Board" class="project-btn" target="_blank">GitHub</a>
       </div>
       <div class="project-card">
         <div class="project-image">🤖</div>
-        <div class="project-content">
-          <h3 class="project-title">Kaggle OpenAI Challenge Notebook</h3>
-          <p>End-to-end ML notebook with EDA and classification</p>
-          <a href="https://www.kaggle.com/code/prakashchandjain/notebook8db9fa0b06" class="btn btn-primary" target="_blank">Kaggle</a>
+        <div class="project-title">Kaggle OpenAI Challenge Notebook</div>
+        <div class="project-desc">End-to-end ML notebook with EDA and classification</div>
+        <div class="project-tech">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">pandas</span>
+          <span class="tech-badge">scikit-learn</span>
+          <span class="tech-badge">Seaborn</span>
+          <span class="tech-badge">Matplotlib</span>
         </div>
+        <a href="https://www.kaggle.com/code/prakashchandjain/notebook8db9fa0b06" class="project-btn" target="_blank">Kaggle</a>
       </div>
       <div class="project-card">
         <div class="project-image">🔢</div>
-        <div class="project-content">
-          <h3 class="project-title">Sorting Visualizer</h3>
-          <p>Animates sorting algorithms (bubble, merge, etc.)<br>Vanilla JS + CSS animations</p>
-          <a href="https://github.com/Prakash-codeMaker/Sorting-Visualizer/tree/ecd2ee3db80818f2c1d882ff940267f10c4c1489" class="btn btn-primary" target="_blank">GitHub</a>
+        <div class="project-title">Sorting Visualizer</div>
+        <div class="project-desc">Animates sorting algorithms (bubble, merge, etc.)</div>
+        <div class="project-tech">
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">CSS</span>
+          <span class="tech-badge">HTML</span>
         </div>
+        <a href="https://github.com/Prakash-codeMaker/Sorting-Visualizer/tree/ecd2ee3db80818f2c1d882ff940267f10c4c1489" class="project-btn" target="_blank">GitHub</a>
       </div>
       <div class="project-card">
         <div class="project-image">🅰️</div>
-        <div class="project-content">
-          <h3 class="project-title">Adobe Hackathon 2025 (in progress)</h3>
-          <p>Participating in youth hackathon using Adobe Express APIs<br>Building an inclusive digital storytelling platform</p>
+        <div class="project-title">Adobe Hackathon 2025 (in progress)</div>
+        <div class="project-desc">Participating in youth hackathon using Adobe Express APIs<br>Building an inclusive digital storytelling platform</div>
+        <div class="project-tech">
+          <span class="tech-badge">Adobe Express APIs</span>
+          <span class="tech-badge">JavaScript</span>
         </div>
       </div>
     </div>
