@@ -70,14 +70,75 @@
     .star-value { font-size: 1rem; color: var(--text2); }
     .star-link { display: inline-block; margin-top: 0.3rem; color: var(--accent); text-decoration: none; font-size: 1rem; }
     .star-link:hover { color: var(--primary); }
-    /* Competitions */
-    .competitions-list { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center; margin-top: 1.5rem; }
-    .competition-card { background: var(--card); border-radius: 14px; padding: 1.2rem 1.5rem; min-width: 180px; text-align: center; box-shadow: 0 2px 12px rgba(99,102,241,0.08); border: 1px solid rgba(255,255,255,0.08); transition: .2s; }
-    .competition-card:hover { transform: translateY(-6px) scale(1.03); background: rgba(255,255,255,0.13); }
-    .competition-logo { font-size: 2rem; margin-bottom: 0.3rem; }
-    .competition-title { font-weight: 600; color: var(--primary); margin-bottom: 0.2rem; }
-    .competition-year { color: var(--accent); font-size: 0.95rem; margin-bottom: 0.2rem; }
-    .competition-desc { color: var(--text2); font-size: 0.95rem; }
+    /* Modern Competitions & Achievements */
+    .competitions-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .competition-card {
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,0.10);
+      border-radius: 18px;
+      border-left: 6px solid var(--primary);
+      box-shadow: 0 8px 32px rgba(99,102,241,0.10);
+      padding: 2rem 1.5rem 1.5rem 2rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(12px);
+      min-height: 260px;
+    }
+    .competition-card:hover {
+      transform: translateY(-8px) scale(1.025);
+      box-shadow: 0 16px 40px rgba(99,102,241,0.18);
+      border-left: 6px solid var(--accent);
+      background: rgba(255,255,255,0.16);
+    }
+    .competition-logo {
+      font-size: 2.3rem;
+      margin-bottom: 0.7rem;
+      color: var(--primary);
+      align-self: flex-start;
+    }
+    .competition-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+    }
+    .competition-year {
+      color: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .competition-desc {
+      color: var(--text2);
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+      line-height: 1.5;
+    }
+    .competition-btn {
+      margin-top: auto;
+      align-self: flex-start;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.98rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(99,102,241,0.10);
+      cursor: pointer;
+    }
+    .competition-btn:hover {
+      background: var(--accent);
+      color: #fff;
+    }
     /* Skills, Projects, Contact (unchanged, compact) */
     .skills-grid, .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 1.2rem; margin-top: 1.5rem; }
     .skill-card, .project-card { background: var(--card); border-radius: 14px; padding: 1.2rem; text-align: center; border: 1px solid rgba(255,255,255,0.08); transition: .2s; }
@@ -103,6 +164,8 @@
       .hero { flex-direction: column; text-align: center; }
       .hero-content h1 { font-size: 2rem; }
       .section-title { font-size: 1.5rem; }
+      .competitions-list { grid-template-columns: 1fr; gap: 1.2rem; }
+      .competition-card { padding: 1.2rem 1rem 1rem 1.2rem; }
     }
   </style>
 </head>
@@ -203,16 +266,16 @@
       <div class="competition-card">
         <span class="competition-logo">🇮🇳</span>
         <div class="competition-title">Built in India Hackathon (2024)</div>
-        <div class="competition-year">Organizer: Ministry of Electronics & IT</div>
-        <div class="competition-desc"><strong>Top 50</strong> out of 25,000+ teams nationwide<br>
+        <div class="competition-year">Ministry of Electronics & IT</div>
+        <div class="competition-desc"><strong>Top 50</strong> out of 25,000+ teams<br>
         <em>Project:</em> Financial Literacy Platform (Next.js, Tailwind CSS)<br>
-        <em>Focus:</em> Youth-oriented financial education in rural India<br>
+        <em>Focus:</em> Youth-oriented financial education<br>
         <em>Outcome:</em> SSG-based, multilingual app demoed in 36 hours</div>
       </div>
       <div class="competition-card">
         <span class="competition-logo">🎓</span>
         <div class="competition-title">Harvard HPAIR Asia Conference (2025)</div>
-        <div class="competition-year">Host: Harvard University, Tokyo</div>
+        <div class="competition-year">Harvard University, Tokyo</div>
         <div class="competition-desc"><strong>Selected Delegate</strong> (Highly competitive)<br>
         <em>Focus:</em> Policy, Technology, Innovation, Diplomacy<br>
         <em>Status:</em> Fully accepted for Aug 2025</div>
@@ -220,7 +283,7 @@
       <div class="competition-card">
         <span class="competition-logo">🅰️</span>
         <div class="competition-title">Adobe Youth Hackathon (2025)</div>
-        <div class="competition-year">Organizer: Adobe India</div>
+        <div class="competition-year">Adobe India</div>
         <div class="competition-desc"><strong>Finalist</strong> – ongoing development<br>
         <em>Project:</em> Digital storytelling tool (Adobe Express APIs)<br>
         <em>Themes:</em> Inclusivity, creativity, social impact</div>
@@ -228,10 +291,11 @@
       <div class="competition-card">
         <span class="competition-logo">🤖</span>
         <div class="competition-title">Kaggle – OpenAI Code Challenge</div>
-        <div class="competition-year">Platform: Kaggle.com</div>
+        <div class="competition-year">Kaggle.com</div>
         <div class="competition-desc"><em>Focus:</em> Structured data modeling, ML pipeline<br>
         <em>Tech:</em> pandas, NumPy, scikit-learn, Seaborn, Matplotlib<br>
         <em>Highlight:</em> Used OpenAI datasets for classification</div>
+        <a href="#" class="competition-btn">View Notebook</a>
       </div>
       <div class="competition-card">
         <span class="competition-logo">🧩</span>
@@ -245,7 +309,7 @@
       <div class="competition-card">
         <span class="competition-logo">🛡️</span>
         <div class="competition-title">Security Challenge – Ceeras Pvt. Ltd. (Internship)</div>
-        <div class="competition-year">Position: Penetration Testing Intern</div>
+        <div class="competition-year">Penetration Testing Intern</div>
         <div class="competition-desc"><em>Tools:</em> Burp Suite, Metasploit<br>
         <em>Contributions:</em> Automated test scripting, reduced test time by 40%</div>
       </div>
