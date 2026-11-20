@@ -2,6 +2,7 @@
 
 Independent AI-platform work sample inspired by Manifold Bio's public mBER-2 report.
 
+## Open the prototype
 Open [the interactive prototype](./index.html). Read the [product memo](./PRODUCT_MEMO.md), [evaluation charter](./evaluation-charter.md), and [candidate outcome schema](./candidate-outcome.schema.json).
 
 ## Product thesis
@@ -17,6 +18,25 @@ The September 22, 2026 mBER-2 technical report describes 56 targets, 1,298,334 d
 | Microbinder | 0.93% | 3.55% |
 
 **The top-100 rates are retrospective selections, not prospective holdout performance.** The product opportunity is to make that distinction operational and enforceable.
+
+## Included engineering components
+- loopbench.py: standard-library CSV validator and prospective holdout diagnostic.
+- data/synthetic_candidate_outcomes.csv: synthetic-only event-level fixture; every identifier is prefixed SYN-.
+- data/public_mber2_aggregate.json: source-attributed public aggregate metrics.
+- tests/test_loopbench.py: tests for duplicate IDs, split leakage, absent holdouts, QC filtering, target-stratified top-k and bootstrap boundary.
+- .github/workflows/loopbench-tests.yml: CI validation and test workflow.
+- candidate-outcome.schema.json: machine-readable record contract.
+
+### Run locally
+Python 3.10+; no third-party packages required.
+
+```bash
+python loopbench.py validate data/synthetic_candidate_outcomes.csv
+python loopbench.py evaluate data/synthetic_candidate_outcomes.csv --top-k 5 --out report.json
+python -m unittest discover -s tests -v
+```
+
+The CLI only computes holdout metrics from rows explicitly labelled prospective_holdout and with qc_status=PASS. It blocks if no eligible holdout rows exist. It warns about target, epitope, campaign or assay-batch overlap. The bootstrap resamples targets as clusters; for fewer than three holdout targets it reports no interval. This is a simple descriptive diagnostic, not a statistician-approved analysis plan or biological conclusion.
 
 ## Guardrails
 - Keep development, retrospective and prospective results distinct.
