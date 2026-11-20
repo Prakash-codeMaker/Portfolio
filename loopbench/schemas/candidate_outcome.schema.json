@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"LoopBench Candidate Outcome Record",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["design_id","target_id","epitope_id","binder_format","model_version","campaign_id","assay_batch","predicted_score","observed_hit","qc_status","evaluation_split","evidence_ref"],
+  "properties":{
+    "design_id":{"type":"string","minLength":1},
+    "target_id":{"type":"string","minLength":1},
+    "epitope_id":{"type":"string","minLength":1},
+    "binder_format":{"type":"string","enum":["VHH","Minibinder","Microbinder","Other"]},
+    "model_version":{"type":"string","minLength":1},
+    "campaign_id":{"type":"string","minLength":1},
+    "assay_batch":{"type":"string","minLength":1},
+    "predicted_score":{"type":"number","minimum":0,"maximum":1},
+    "observed_hit":{"type":"integer","enum":[0,1]},
+    "qc_status":{"type":"string","enum":["PASS","FAIL","REVIEW"]},
+    "evaluation_split":{"type":"string","enum":["development","prospective_holdout","retrospective"]},
+    "evidence_ref":{"type":"string","minLength":1}
+  }
+}
